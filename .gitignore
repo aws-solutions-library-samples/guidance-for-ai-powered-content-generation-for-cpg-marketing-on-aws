@@ -1,27 +1,40 @@
-### vsCode ###
-.vscode
+# Dependencies
+node_modules/
 
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+# Build output
+dist/
+*.js.map
+*.d.ts
 
-**/node_modules
-**/dist
-**/build
-**/.DS_Store
-**/.angular
-**/.idea
-cdk.out
-**/data/**.csv
+# CDK
+cdk.out/
+.cdk.staging/
 
+# Deploy artifacts: written by scripts/deploy.sh. Contains the AWS account ID
+# and live resource identifiers, so it must never be committed.
+cdk-outputs.json
+
+# Environment & secrets
 .env
+.env.*
+!.env.example
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Python bytecode (from local verification runs)
+__pycache__/
+*.py[cod]
+
+# Guidance Factory artifacts (internal only)
+guidance-docs/
+.ash/
+temp/
