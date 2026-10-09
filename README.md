@@ -227,7 +227,7 @@ For automated deployment, a one-click deploy script (`scripts/deploy.sh`) is ava
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd rrcg-content-generation
+cd guidance-for-ai-powered-content-generation-for-cpg-marketing-on-aws
 
 # Make the script executable and run it
 chmod +x scripts/deploy.sh
@@ -285,7 +285,7 @@ Use these steps if you want to understand each step in detail or customize the d
 
    ```bash
    git clone <repository-url>
-   cd rrcg-content-generation
+   cd guidance-for-ai-powered-content-generation-for-cpg-marketing-on-aws
    ```
 
 2. Confirm your AWS identity and choose a Region.
@@ -624,6 +624,7 @@ The stack deletion handles bucket emptying automatically, but two items remain i
 - **The functions run outside an Amazon VPC.** All AWS Lambda functions have unrestricted outbound internet access with no security group or endpoint policy. See Next Steps for adding network isolation.
 - **This Guidance is single-Region.** There is no cross-Region replication and no failover. A Regional service event takes the deployment offline.
 - **Encryption uses AWS managed keys.** There is no customer-managed AWS KMS key, so encryption is not usable as an access control and there is no key policy to enforce separation of duty.
+- **Control-plane audit logging relies on account-level AWS CloudTrail.** This Guidance configures request-level logging (Amazon API Gateway access logs, Amazon S3 server access logging, and Amazon CloudFront standard logging), but it does not provision an AWS CloudTrail trail. CloudTrail records control-plane API activity and is normally enabled once per account or organization. Enable an account or organization trail if one is not already active, so API calls against the resources this stack creates are audited.
 - **Generated content requires human review.** Foundation models can produce inaccurate claims. An Amazon Bedrock guardrail blocks medical and health claims, competitor disparagement, prompt attacks, profanity, and harmful content categories, and redacts personally identifiable information. A guardrail reduces risk but does not verify factual accuracy. Packaging, regulatory, and health-adjacent copy must still be reviewed by qualified personnel before publication.
 - **Video output is capped at 6 seconds.** This reflects the Amazon Nova Reel text-to-video limit, not a limitation of this Guidance.
 - **Asset uploads are restricted.** The presigned upload policy signs an allowlisted content type and a 100 MB maximum, both enforced by Amazon S3. Amazon Macie is not deployed, so uploaded files are not scanned for sensitive data.
@@ -722,9 +723,9 @@ The `.env` file is excluded by `.gitignore`. Only the frontend runs locally; the
 
 ## Authors
 
-- Aamer Ahmed
-- Emmanuel Ashiedu
-- Padmaja Vedula
+- Aamer Azeem
+- Emmanuel Isimah
+- Padmaja Vaidyanathan
 
 ## License
 

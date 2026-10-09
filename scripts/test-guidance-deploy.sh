@@ -22,7 +22,7 @@ set -euo pipefail
 # ============================================
 AWS_REGION="us-east-1"
 STACK_NAME="ContentGenStack-$(date +%s)"
-EMAIL_ADDRESS="wwso-guidance-deployments-ignore@amazon.com"
+EMAIL_ADDRESS="deployments-ignore@example.com"
 NODE_VERSION="20"
 DESTROY_AFTER_TEST="${DESTROY_AFTER_TEST:-true}"
 
@@ -70,7 +70,7 @@ echo "AWS CLI: $(aws --version 2>&1)"
 
 echo ""
 echo "=== Installing AWS CDK CLI ==="
-npm install -g aws-cdk@2
+npm install -g aws-cdk@2.1121.0
 echo "CDK: $(cdk --version)"
 
 echo ""
